@@ -1,0 +1,172 @@
+.desktop-home{
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #1d2733;
+  .main-logo{
+    animation: logoOpeningDesktop;
+    animation-duration: 1.5s;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #17212b;
+    height: 45%;
+    width: 100%;
+    text-align: center;
+    span{
+      color: #e8e8e8;
+      font-size: 24px;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    svg{
+      margin-left: auto;
+      margin-right: auto;
+      path{
+        fill: #e8e8e8;
+      }
+    }
+  }
+  .options{
+    background-color: #1d2733;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 55%;
+    .signin{
+      animation: optionsSigninOpeningDesktop;
+      animation-duration: 2s;
+      border-radius: 20px;
+      position: absolute;
+      width: 30%;
+      height: 90%;
+      background-color: rgba(0, 128, 0, 0.4);
+      left: 3%;
+    }
+    .signup{
+      border-radius: 20px;
+      position: absolute;
+      background-color: rgba(255, 165, 0, 0.4);
+      width: 30%;
+      height: 90%;
+    }
+    .skip{
+      animation: optionsSkipOpeningDesktop;
+      animation-duration: 2s;
+      border-radius: 20px;
+      right: 3%;
+      position: absolute;
+      background-color: rgba(255, 0, 0, 0.4);
+      width: 30%;
+      height: 90%;
+    }
+  }
+}
+
+.mobile-home{
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #1d2733;
+  .main-logo{
+    animation: logoOpeningDesktop;
+    animation-duration: 1.5s;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #17212b;
+    height: 40%;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    span{
+      color: #e8e8e8;
+      font-size: 24px;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    svg{
+      transform: scale(0.8);
+      path{
+        fill: #e8e8e8;
+      }
+    }
+  }
+  .options{
+    background-color: #1d2733;
+    animation: OptionsOpeningMobile;
+    animation-duration: 1.5s;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 60%;
+    .signin{
+      border-radius: 20px;
+      width: 90%;
+      height: 30%;
+      background-color: rgba(0, 128, 0, 0.4);
+    }
+    .signup{
+      border-radius: 20px;
+      background-color: rgba(255, 165, 0, 0.4);
+      width: 90%;
+      height: 30%;
+    }
+    .skip{
+      border-radius: 20px;
+      background-color: rgba(255, 0, 0, 0.4);
+      width: 90%;
+      height: 30%;
+    }
+  }
+}
+
+@keyframes OptionsOpeningMobile {
+  from{
+    bottom: -100%;
+  }
+  to{
+    bottom: 0;
+  }
+}
+
+@keyframes logoOpeningDesktop {
+  from{
+    opacity: 50%;
+    top: -100%;
+  }
+  to{
+    opacity: 100%;
+    top: 0;
+  }
+}
+
+@keyframes optionsSigninOpeningDesktop {
+  from{
+    left: 100%;
+  }
+  to{
+    left: 3%;
+  }
+}
+
+@keyframes optionsSkipOpeningDesktop {
+  from{
+    right: 100%;
+  }
+  to{
+    right: 3%;
+  }
+}

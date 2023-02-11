@@ -1,0 +1,73 @@
+.menu-nav{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  width: 72px;
+  background-color: #0e1621;
+  height: 100%;
+  .menu-icon{
+    cursor: pointer;
+    margin: 19px auto;
+    color: #727783;
+  }
+
+  .chats-block{
+
+    &:hover{
+      background: #202b36 radial-gradient(circle, transparent 1%, #202b36 1%) center/15000%;
+    }
+
+    margin-top: 1px;
+    cursor: pointer;
+    background-color: rgba(142, 150, 162, 0.2);
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    span{
+      color:#5eb7f7;
+      font-size: 12px;
+      margin: 0 auto auto;
+    }
+    svg{
+      margin-top: auto;
+      width: 55%;
+      height: fit-content;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+
+.sidenav {
+  display: flex;
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  /* 0.5 second transition effect to slide in the sidenav */
+  .menu{
+    display: flex;
+    width: 0;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    height: 100%;
+    background-color: #17212b;
+    transition: 0.3s all;
+    box-shadow: 1px 0 11px 1px rgba(0, 0, 0, 0.31);
+  }
+  .empty-space{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+}

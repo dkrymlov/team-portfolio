@@ -1,0 +1,60 @@
+<div class="leftbar">
+
+  <div class="search">
+    <input #search (input)="filterChats(search.value)" type="text" placeholder="Search">
+  </div>
+
+  <div *ngIf="innerWidth < 1100" class="pseudo-nav">
+    <button matBadge="{{getObservableLength(filteredChats)}}" matBadgeOverlap=false matBadgePosition="after" matBadgeColor="accent">All Chats</button>
+  </div>
+
+  <div class="chats">
+
+    <div *ngFor="let chat of filteredChats | async">
+
+      <div class="chat" *ngIf="innerWidth > 1100" [routerLink]="[currentRoute, chat.id]" [routerLinkActive]="'active'">
+
+        <img class="chat-image" src="{{chat.image}}">
+
+        <div class="chat-info">
+          <span class="chat-title" [routerLinkActive]="'subactive'" [textContent]="chat.title"></span>
+          <span class="chat-subtitle" [routerLinkActive]="'subactive'" [textContent]="chat.subtitle"></span>
+        </div>
+
+        <div class="chat-nav">
+          <span class="chat-time" [routerLinkActive]="'subactive'" [textContent]="chat.time"></span>
+          <svg *ngIf="chat.pinned" [routerLinkActive]="'pin-active'" xmlns="http://www.w3.org/2000/svg" version="1.0" width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#6c7277" stroke="none">
+              <path d="M3227 5044 c-68 -21 -138 -93 -166 -167 -34 -92 -36 -149 -10 -252 29 -120 33 -374 6 -475 -35 -130 -37 -132 -461 -556 -433 -434 -442 -442 -575 -470 -133 -28 -292 -13 -597 56 -300 68 -398 72 -518 20 -56 -23 -131 -92 -156 -140 l-19 -36 505 -505 504 -504 -483 -485 c-555 -558 -718 -731 -927 -990 -157 -195 -244 -333 -256 -409 -29 -182 266 -11 786 455 91 81 390 372 665 646 l501 497 504 -504 504 -504 35 19 c85 43 151 146 172 264 14 86 4 167 -52 415 -68 299 -83 458 -55 592 28 132 37 142 470 575 424 424 425 425 556 461 101 27 342 24 479 -6 159 -36 257 -14 348 75 88 87 105 201 48 317 -21 42 -176 203 -782 809 -822 822 -804 806 -922 814 -33 2 -75 -2 -104 -12z"/>
+            </g>
+          </svg>
+        </div>
+
+      </div>
+
+      <div class="chat" *ngIf="innerWidth < 1100" [ngStyle]="{'background-color': (chat.pinned) ? 'transparent' : '#131c23'}" [routerLink]="[currentRoute, chat.id]">
+
+        <img class="chat-image" src="{{chat.image}}">
+
+        <div class="chat-info">
+          <span class="chat-title" [routerLinkActive]="'subactive'" [textContent]="chat.title"></span>
+          <span class="chat-subtitle" [routerLinkActive]="'subactive'" [textContent]="chat.subtitle"></span>
+        </div>
+
+        <div class="chat-nav">
+          <span class="chat-time" [routerLinkActive]="'subactive'" [textContent]="chat.time"></span>
+          <svg *ngIf="chat.pinned" [routerLinkActive]="'pin-active'" xmlns="http://www.w3.org/2000/svg" version="1.0" width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#6c7277" stroke="none">
+              <path d="M3227 5044 c-68 -21 -138 -93 -166 -167 -34 -92 -36 -149 -10 -252 29 -120 33 -374 6 -475 -35 -130 -37 -132 -461 -556 -433 -434 -442 -442 -575 -470 -133 -28 -292 -13 -597 56 -300 68 -398 72 -518 20 -56 -23 -131 -92 -156 -140 l-19 -36 505 -505 504 -504 -483 -485 c-555 -558 -718 -731 -927 -990 -157 -195 -244 -333 -256 -409 -29 -182 266 -11 786 455 91 81 390 372 665 646 l501 497 504 -504 504 -504 35 19 c85 43 151 146 172 264 14 86 4 167 -52 415 -68 299 -83 458 -55 592 28 132 37 142 470 575 424 424 425 425 556 461 101 27 342 24 479 -6 159 -36 257 -14 348 75 88 87 105 201 48 317 -21 42 -176 203 -782 809 -822 822 -804 806 -922 814 -33 2 -75 -2 -104 -12z"/>
+            </g>
+          </svg>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
