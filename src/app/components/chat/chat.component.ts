@@ -3,6 +3,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Chat} from "../../models/Chat";
 import {Message} from "../../models/Message";
 import {DatePipe} from "@angular/common";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-chat',
@@ -19,7 +20,7 @@ export class ChatComponent implements OnInit, AfterViewInit{
   // @ts-ignore
   chat : Chat
   currentTime : string | null  = this.datepipe.transform((new Date), 'shortTime')
-  constructor(private router : Router, private route : ActivatedRoute, public datepipe: DatePipe) {
+  constructor(private router : Router, private route : ActivatedRoute, public datepipe: DatePipe, public authService : AuthService) {
 
   }
 
@@ -35,17 +36,11 @@ export class ChatComponent implements OnInit, AfterViewInit{
       }
     )
     this.lastMessageFromMe = this.chat.messages.length-1
+    // @ts-ignore
+    document.getElementById("userInput").placeholder = this.authService.isLoggedIn ? "Write a message..." : "Login to write a message"
   }
 
   ngAfterViewInit(): void {
-   /* if (document.querySelector(".message-wrapper:last-child")){
-      // @ts-ignore
-      document.querySelector(".message-wrapper:last-child").scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-        inline: "nearest"
-      });
-    }*/
   }
 
   closeChat() {

@@ -3,6 +3,7 @@ import {DatePipe} from "@angular/common";
 import {ChatPreview} from "../../models/ChatPreview";
 import {Observable, of} from "rxjs";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-leftbar',
@@ -17,7 +18,7 @@ export class LeftbarComponent implements OnInit{
 
   rootPath : string = innerWidth < 1100 ? 'mobile' : '/desktop'
 
-  constructor(private datepipe: DatePipe, private router: Router, private route : ActivatedRoute) {
+  constructor(private datepipe: DatePipe, private router: Router, private route : ActivatedRoute, public authService : AuthService) {
 
   }
 
@@ -47,7 +48,8 @@ export class LeftbarComponent implements OnInit{
     if (document.URL.includes('mobile')){
       this.currentRoute = '/mobile'
     }else this.currentRoute = '/desktop'
-    console.log(this.currentRoute)
+    // @ts-ignore
+    document.getElementById('searchInChats').placeholder = this.authService.isLoggedIn ? "Search" : "Login to search"
   }
 
   getObservableLength(observable : Observable<any>) : number{

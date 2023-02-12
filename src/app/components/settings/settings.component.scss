@@ -1,0 +1,155 @@
+.chat{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #0e1621;
+
+  .chat-nav{
+    animation: navOpening;
+    animation-duration: 0.6s;
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    flex-direction: row;
+    width: 65%;
+    height: 60px;
+    background-color: #17212b;
+    align-items: center;
+    .chat-info{
+      width: fit-content;
+      margin: auto 0 auto 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .title{
+        font-size: 15px;
+        font-weight: 400;
+        color: #e8e8e8;
+      }
+      .subtitle{
+        font-size: 13px;
+        color: #727783;
+      }
+    }
+    .desktop-svg{
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      margin-right: 20px;
+      margin-left: auto;
+      path{
+        fill: #727783;
+      }
+    }
+    .chat-image{
+      margin: auto 10px auto 20px;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  .chat-nav-mobile{
+    animation: navOpening;
+    animation-duration: 0.6s;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    background-color: #17212b;
+    align-items: center;
+    .chat-info{
+      width: 50%;
+      height: 36px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      .title{
+        height: 18px;
+        font-size: 13px;
+        font-weight: 400;
+        color: #e8e8e8;
+      }
+      .subtitle{
+        height: 18px;
+        font-size: 11px;
+        color: #727783;
+      }
+    }
+    .mobile-svg{
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+      margin-left: 5px;
+      .path{
+        fill: #5eb7f7;
+      }
+    }
+    .chat-image{
+      margin: auto 7.5px auto 0;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .chat{
+    .messages{
+      overflow-y: auto;
+      width: 100%!important;
+      .message-wrapper{
+        max-width: 95%;
+        margin-right: 0;
+        .message{
+          .message-image{
+            width: fit-content;
+            height: fit-content;
+            max-width: 90%;
+            max-height: 400px;
+          }
+          .video-frame{
+            width: 320px;
+            height: fit-content;
+          }
+        }
+      }
+    }
+    .user-input{
+      width: 100%;
+    }
+  }
+}
+
+@keyframes navOpening {
+  from{
+    top: -100px;
+  }
+  to{
+    top: 0;
+  }
+}
+
+@keyframes inputOpening {
+  from{
+    bottom: -100px;
+  }
+  to{
+    bottom: 0;
+  }
+}
+
+@keyframes messagesOpening {
+  from{
+    right: -500px;
+  }
+  to{
+    right: 0;
+  }
+}
+

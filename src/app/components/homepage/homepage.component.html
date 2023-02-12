@@ -1,4 +1,4 @@
-<div class="desktop-home" *ngIf="innerWidth > 1100">
+<div id="home-desktop" class="desktop-home" *ngIf="innerWidth > 1100 && !loggedIn">
   <div class="main-logo">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="267.000000pt" height="251.000000pt" viewBox="0 0 267.000000 251.000000" preserveAspectRatio="xMidYMid meet">
 
@@ -24,14 +24,28 @@
   </div>
 
   <div class="options">
-    <div class="signin"></div>
-    <div class="signup"></div>
-    <div class="skip" (click)="routeSkip()"></div>
+    <div class="signin" (click)="openLogin()">
+      <span class="option-title" >Sign In</span>
+      <span class="option-subtitle">Sign in to an existing account</span>
+      <span class="option-subtitle">All website features provided!</span>
+    </div>
+    <div class="signup" (click)="openRegister()">
+      <span class="option-title">Sign Up</span>
+      <span class="option-subtitle"> Create an account</span>
+      <span class="option-subtitle">Explore all website features!</span>
+    </div>
+    <div class="skip" (click)="routeSkip()">
+      <span class="option-title-skip">Continue</span><br>
+      <span class="option-title">without login</span>
+      <span class="option-subtitle">Some website features</span>
+      <span class="option-subtitle">may not be available!</span>
+      <span class="option-subtitle" style="color: transparent">aaa</span>
+    </div>
   </div>
 
 </div>
 
-<div class="mobile-home" *ngIf="innerWidth < 1100">
+<div id="home-mobile" class="mobile-home" *ngIf="innerWidth < 1100 && !loggedIn">
   <div class="main-logo">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="267.000000pt" height="251.000000pt" viewBox="0 0 267.000000 251.000000" preserveAspectRatio="xMidYMid meet">
 
@@ -57,12 +71,96 @@
   </div>
 
   <div class="options">
-    <div class="signin"></div>
-    <div class="signup"></div>
-    <div class="skip" (click)="routeSkip()"></div>
+    <div class="signin" (click)="openLogin()">
+      <span class="option-title-mobile" >Sign In</span>
+      <span class="option-subtitle-mobile">Sign in to an existing account</span>
+      <span class="option-subtitle-mobile">All website features provided!</span>
+    </div>
+    <div class="signup" (click)="openRegister()">
+      <span class="option-title-mobile">Sign Up</span>
+      <span class="option-subtitle-mobile"> Create an account</span>
+      <span class="option-subtitle-mobile">Explore all website features!</span>
+    </div>
+    <div class="skip" (click)="routeSkip()">
+      <span class="option-title-mobile">Continue without login</span>
+      <span class="option-subtitle-mobile">Some website features may not be available!</span>
+    </div>
   </div>
 </div>
 
-<div class="loginfrom"></div>
-<div class="registerform"></div>
+<div id="login" class="form">
+
+  <alert *ngIf="err" class="err" type="danger">
+    <strong>Error!</strong> Wrong user data
+  </alert>
+
+  <form (ngSubmit)="login(loginUsername.value, loginPassword.value)" ngNativeValidate>
+
+    <mat-icon class="close" (click)="closeLoginForm()">close</mat-icon>
+
+    <h3 style="font-weight: 500; color: #e8e8e8">Sign In</h3>
+    <label for="username">Email address</label>
+    <input #loginUsername type="text" placeholder="markus22@gmail.com" id="username" required>
+
+    <label for="password">Password</label>
+    <input #loginPassword type="password" placeholder="Your password" id="password" required>
+
+    <button type="submit" class="login-btn">Log In</button>
+    <div class="social">
+      <div class="google-btn" (click)="loginWithGoogle()">
+        <div class="google-icon-wrapper">
+          <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+        </div>
+        <p class="btn-text"><span>Sign in with google</span></p>
+      </div>
+      <div class="google-btn facebook">
+        <div class="google-icon-wrapper">
+          <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/640px-Facebook_f_logo_%282019%29.svg.png"/>
+        </div>
+        <p class="btn-text"><span>Sign in with facebook</span></p>
+      </div>
+
+    </div>
+  </form>
+
+</div>
+
+
+
+<div id="register" class="form">
+
+  <alert *ngIf="err" class="err" type="danger">
+    <strong>Error!</strong> Wrong user data
+  </alert>
+
+  <form (ngSubmit)="register(registerUsername.value, registerPassword.value)" ngNativeValidate>
+
+    <mat-icon class="close" (click)="closeRegisterForm()">close</mat-icon>
+
+    <h3 style="font-weight: 500; color: #e8e8e8">Sign Up</h3>
+    <label for="username">Email address</label>
+    <input #registerUsername type="text" placeholder="daniel38ua@gmail.com" required>
+
+    <label for="password">Password</label>
+    <input #registerPassword type="password" placeholder="Your password" required>
+
+    <button type="submit" class="login-btn">Create account</button>
+    <div class="social">
+      <div class="google-btn" (click)="loginWithGoogle()">
+        <div class="google-icon-wrapper">
+          <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+        </div>
+        <p class="btn-text"><span>Sign up with google</span></p>
+      </div>
+      <div class="google-btn facebook">
+        <div class="google-icon-wrapper">
+          <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/640px-Facebook_f_logo_%282019%29.svg.png"/>
+        </div>
+        <p class="btn-text"><span>Sign up with facebook</span></p>
+      </div>
+
+    </div>
+  </form>
+
+</div>
 

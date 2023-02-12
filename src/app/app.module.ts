@@ -15,6 +15,16 @@ import { ChatComponent } from './components/chat/chat.component';
 import { MenuNavComponent } from './components/menu-nav/menu-nav.component';
 import {MatIconModule} from "@angular/material/icon";
 import { HomepageComponent } from './components/homepage/homepage.component';
+import {environment} from "../environments/environment";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import {AuthService} from "./services/auth.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AlertModule} from "ngx-bootstrap/alert";
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -24,19 +34,29 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     ChatComponent,
     MenuNavComponent,
     HomepageComponent,
+    SettingsComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        NgxNavbarModule,
-        TabsModule,
-        MatTabsModule,
-        MatBadgeModule,
-        MatIconModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NgxNavbarModule,
+    TabsModule,
+    MatTabsModule,
+    MatBadgeModule,
+    MatIconModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    FormsModule,
+    ReactiveFormsModule,
+    AlertModule,
+  ],
   providers: [
-    DatePipe
+    DatePipe,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

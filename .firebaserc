@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "krymlov-team": {
+      "hosting": {
+        "material-design": [
+          "krymlov-team"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "krymlov-team"
+  }
+}
