@@ -1,5 +1,6 @@
+<app-homepage *ngIf="!loggedIn" (newItemEvent)=onActionChanges($event)></app-homepage>
+
 <div *ngIf="innerWidth > 1100" class="main">
-  <app-homepage *ngIf="!loggedIn" (newItemEvent)=onActionChanges($event)></app-homepage>
   <div class="left">
     <app-menu-nav></app-menu-nav>
     <app-leftbar></app-leftbar>
@@ -10,7 +11,6 @@
 </div>
 
 <div *ngIf="innerWidth < 1100" class="mobile">
-  <app-homepage *ngIf="!loggedIn" (newItemEvent)=onActionChanges($event)></app-homepage>
   <div class="router">
     <router-outlet></router-outlet>
   </div>

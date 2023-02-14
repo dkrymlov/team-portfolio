@@ -16,26 +16,22 @@ export class LeftbarComponent implements OnInit{
 
   currentTime : string | null  = this.datepipe.transform((new Date), 'shortTime')
 
-  rootPath : string = innerWidth < 1100 ? 'mobile' : '/desktop'
+  //rootPath : string = innerWidth < 1100 ? 'mobile' : '/desktop'
 
   constructor(private datepipe: DatePipe, private router: Router, private route : ActivatedRoute, public authService : AuthService) {
 
   }
 
   chats : Array<ChatPreview> = [
-    new ChatPreview('saved-messages', 'https://telega-blog.ru/wp-content/uploads/2022/09/kto-vidit-izbrannoe-telegram.jpg', 'Saved Messages', 'Messages you have saved', this.currentTime, true),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
-    new ChatPreview('about-us', 'https://cdn.pixabay.com/photo/2017/03/17/05/21/info-2150941_960_720.png', 'About Us', 'We are fast growing...',  this.currentTime, false),
+    new ChatPreview('about', '/assets/chats/about.png', 'About Us', 'We are...', this.currentTime, true),
+    new ChatPreview('services', '/assets/chats/services.png', 'Our Services', 'What we can do for you', this.currentTime, true),
+    new ChatPreview('deadlines', '/assets/chats/timings.png', 'Deadlines', 'How fast we can work', this.currentTime, true),
+    new ChatPreview('quality', '/assets/chats/quality.png', 'Products Quality', 'Thing we proud of', this.currentTime, true),
+    new ChatPreview('team', '/assets/chats/team.png', 'Our Team', 'Our developers', this.currentTime, true),
+    new ChatPreview('developer1', '/assets/chats/developer1.png', 'Developer Danylo', 'Hello, I`m a...', this.currentTime, true),
+    new ChatPreview('developer2', '/assets/chats/developer3.png', 'Developer Artem', 'Whats up! My name...', this.currentTime, true),
+    new ChatPreview('contacts', '/assets/chats/contacts.png', 'Contacts', 'Contact us', this.currentTime, true),
+    new ChatPreview('ukraine', '/assets/chats/ukraine.png', 'Stand with Ukraine', 'Our Country', this.currentTime, true),
   ]
   filteredChats : Observable<ChatPreview[]> = of(this.chats)
   filterChats(value: string) {

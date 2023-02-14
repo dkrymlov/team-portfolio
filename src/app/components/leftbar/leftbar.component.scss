@@ -16,22 +16,36 @@
     height: 64px;
     align-items: center;
     justify-content: space-around;
-    svg{
-      width: 30%;
-      height: 30px;
+
+    .bottom-navigation-option{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #17212b;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      svg{
+        width: 40px;
+        height: 40px;
+      }
+      img{
+        width: 40px;
+        height: 40px;
+      }
     }
     .upwork{
       margin-top: 5px;
     }
     span{
+      font-family: ChunkFive, serif;
       text-align: center;
       width: 30%;
+      font-weight: normal;
       height: 30px;
       color: #404145;
-      font-weight: bold;
       font-size: 28px;
       margin-top: 12px;
-      letter-spacing: 0;
     }
   }
 
@@ -231,11 +245,16 @@
   }
   .chats{
     margin-top: 32px!important;
-    height: calc(100% - 94px - 8%)!important;
+    height: calc(100% - 94px)!important;
     border-left: 0!important;
     border-top: 1px solid black!important;
     left: 0!important;
     width: 100%!important;
+    .chats-wrapper{
+      &:last-child{
+        margin-bottom: 64px;
+      }
+    }
   }
 }
 
