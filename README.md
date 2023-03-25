@@ -9,6 +9,8 @@ Design as a chat app providing all features as texting
 
 Full responsive interface
 
+Hosted on Firebase 
+
 # How to make it work
 1) Download repository
 
