@@ -5,6 +5,7 @@ This project is created to demonstrate Front-End skills and to describe our team
 
 # Photo Gallery
 ![alt text](https://imgur.com/F09Kdc0.jpg)
+![alt text](https://imgur.com/Qa3fAgH.jpg)
 ![alt text](https://imgur.com/7qbhjIU.jpg)
 ![alt text](https://imgur.com/Flw8byh.jpg)
 ![alt text](https://imgur.com/TAlsJP6.jpg)
