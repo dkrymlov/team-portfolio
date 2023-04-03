@@ -29,7 +29,7 @@ Hosted on Firebase
 # Technologies
 NodeJs
 
-AngularJs
+Angular 2+
 
 Typescript
 
